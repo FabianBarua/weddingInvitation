@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/corazon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Boda</title>
+    <title>Mi Boda CyR</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/main.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAUIJKz06nTrnKf-ypFejk_YcHUlFE_4Z4",
+        authDomain: "boda-2024.firebaseapp.com",
+        projectId: "boda-2024",
+        storageBucket: "boda-2024.appspot.com",
+        messagingSenderId: "291726025010",
+        appId: "1:291726025010:web:6b03d703a70fda689db72b"
+      };
+      const app = initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>
