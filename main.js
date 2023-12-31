@@ -8,10 +8,10 @@ import {play} from './public/js/play'
 const names = ['Clara', 'Humberto'];
 const date = '02/02/2024';
 const account = `Banco:
-  Itau
+  Atlas
 
   Número de cuenta: 
-  220212902
+  1367867
 
   Nombre:
   Humberto Rotela
