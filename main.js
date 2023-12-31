@@ -1,9 +1,24 @@
 import './public/css/output.css';
-import { confirmation, home, location, validate, footer } from './components';
+import { confirmation, home, location, validate, footer, slider, info, createButton } from './components';
 import { wave } from './public/img/svg/index';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+import {play} from './public/js/play'
 
 const names = ['Clara', 'Humberto'];
 const date = '02/02/2024';
+const account = `Banco:
+  Itau
+
+  Número de cuenta: 
+  220212902
+
+  Nombre:
+  Humberto Rotela
+
+  CI:
+  317209
+  `
 
 const linksObj = {
   yes: 'https://wa.link/duxx8x',
@@ -45,7 +60,19 @@ document.querySelector('#app').innerHTML = `
     <div class=" relative lg:-translate-y-12 -z-10">
       ${wave()}
     </div>
+
+    ${slider({
+      imgs:[
+        '/img/pic1.jpeg',
+        '/img/pic2.jpeg',
+        '/img/pic3.jpeg',
+        '/img/pic4.jpeg',
+        '/img/pic5.jpeg'
+      ]})}
     
+
+    ${info(account)}
+
     ${confirmation(linksObj)}
 
     ${validate(numX())}
@@ -54,3 +81,24 @@ document.querySelector('#app').innerHTML = `
 
     </div>
 `;
+
+createButton('account', account)
+
+new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+play('./public/music.mp3', 0.5)

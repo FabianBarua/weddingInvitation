@@ -1,4 +1,5 @@
 import { locationIcon, yes, no, ig } from '../public/img/svg/index';
+import Swal from 'sweetalert2'
 
 export function home(names, date) {
   return `
@@ -76,5 +77,106 @@ export function footer() {
     <section class="my-5 bg-[#350000] w-full h-14  place-items-center flex justify-center font-judson text-white">
       <p class="flex text-sm leading-4 text-center items-center" > Invitación digital desarrollada por <a href="https://www.instagram.com/fabianbaruax/" class=" translate-y-[1px] ml-2 flex gap-1 justify-center items-center bg-bred px-2 rounded-full "> ${ig()} @fabianbaruax</a> </p>
     </section>
+  `;
+}
+
+
+
+export function slider({ imgs }) {
+
+  const sign = `      
+  <div class=" z-10 w-full  absolute -bottom-3 " >
+
+    <div class="w-64 mx-auto bg-bred rounded-3xl z-10 my-3 " >
+      <p class=" px-6  py-2 whitespace-pre-line text-center font-judson text-white text-base leading-4 " >"Uno solo puede ser vencido
+      pero <strong>dos pueden resistir.</strong>
+      ¡La cuerda de tres hilos
+      no se rompe fácilmente!."
+      </p> 
+    </div>
+
+  </div>
+  `
+
+  const slides = imgs
+    .map((imgSrc, index) => `
+    <div class="swiper-slide  text-center text-lgflex justify-center items-center ">
+      <div class=" w-full py-8 px-8 h-full" >
+      <img class="block   rounded-3xl  w-full h-full object-cover" src="${imgSrc}" alt="Slide ${index + 1}">
+      </div>
+    </div>
+    `)
+    .join('');
+
+  return `
+    <div class="swiper w-full h-full mySwiper relative mb-3">
+
+        ${sign}
+
+      <div class="swiper-wrapper">
+        ${slides}
+      </div>
+
+    </div>
+  `;
+}
+
+
+export function createButton(parentId, account) {
+  const button = document.createElement('button');
+  button.textContent = 'Copiar!';
+  button.classList.add('absolute', 'top-3', 'right-3', 'bg-bwhite', 'text-bred', 'px-2', 'py-1', 'rounded-md', 'active:translate-y-1', 'transition-all', 'ease-in', 'shadow-lg', 'active:bg-red-200');
+  button.id = 'copy';
+
+  button.addEventListener('click', () => {
+    const textToCopy = account;
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Cuenta copiada!",
+        });
+
+      })
+      
+      .catch(err => {
+        console.error('Error al copiar el texto: ', err);
+      });
+  });
+
+  const parentElement = document.getElementById(parentId);
+  if (parentElement) {
+    parentElement.appendChild(button);
+  } else {
+    console.error('Elemento padre no encontrado');
+  }
+}
+
+
+export function info(account) {
+  return `
+  <section class=" my-8 text-center  text-3xl font-judson text-bred " >
+  <p>Código de <strong>Vestimenta</strong></p>
+  <p class=" font-bold text-xl text-white bg-bred px-3 py-1 leading-5 mt-3 w-min mx-auto rounded-full" >Elegante</p>
+  
+  <p class=" mt-6" >Regalo <strong>Sugerido</strong></p>
+  <p class=" mt-2 leading-4 text-base whitespace-pre-line" >Tu presencia es el regalo más importante,
+  ¡pero si te gustaría darnos un obsequio,
+  te dejamos una opción!</p>
+  <p id="account" class=" font-bold text-xl text-white bg-bred leading-4 mt-3 w-4/5 px-6 text-start mx-auto py-5 rounded-3xl whitespace-pre-line relative " >${account}</p>
+
+  </section>
   `;
 }
