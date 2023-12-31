@@ -17,7 +17,7 @@ const account = `Banco:
   Humberto Rotela
 
   CI:
-  317209
+  3172092
   `
 
 const linksObj = {
@@ -31,8 +31,6 @@ function numX() {
   const xNumber = parseInt(xParam);
   return isNaN(xNumber) || xNumber <= 0 ? 1 : xNumber;
 }
-
-
 
 document.querySelector('#app').innerHTML = `
   <div class="m-0 h-screen">
