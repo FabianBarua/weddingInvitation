@@ -7,20 +7,19 @@ Explore the project demo [here](https://boda-2024.web.app/).
 
 <img src="https://github.com/FabianBarua/weddingInvitation/assets/92491014/bc29195c-72c7-46e8-9c4e-6c3338f4fad4" alt="example" style="width: 200px;" />
 
-
 ## Description
-This project was crafted during a React course with the objective of creating a user-following section akin to Twitter's functionality.
+This project showcases a custom digital wedding invitation created using vanilla JavaScript. It employs custom rendering techniques by handling HTML within JavaScript and processing it accordingly.
 
 ## Features
-- ✅ **Dynamic UI:** Utilizes React state for a more dynamic and interactive user interface.
-- 🤝 **Follow and Unfollow:** Implements follow and unfollow functionality using React states to manage user interactions.
-- 📱 **Responsive Design:** Ensures a seamless experience across various devices by employing responsive design techniques with React.
-
+- 💌 Customized Wedding Invitation: Crafted a personalized and unique digital wedding invitation.
+- 🎨 HTML-in-JavaScript Rendering: Utilized vanilla JavaScript for custom rendering by embedding HTML within JavaScript.
+- 📱 Responsive Design: Ensured a responsive design for an optimal viewing experience across devices.
 
 ## Technologies Used
-- ⚛️ React
-- 🏎️ Vite
-
+- 🌐 Vanilla JavaScript.
+- 🎨 Tailwind CSS.
+- 🏎️ Vite.
+  
 ## Getting Started
 ### Installation
 1. Clone this repository.
@@ -39,9 +38,4 @@ To generate an optimized production build, use:
 npm run build
 ```
 
-## Acknowledgements
-
-Special thanks to midudev for the insightful guidance during this project.
-
-🎥 Check out the related video tutorial [here](https://www.youtube.com/watch?v=7iobxzd_2wY&t)!
 
